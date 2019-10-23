@@ -25,7 +25,7 @@
       class="mr-4"
       @click="validate"
     >
-      Validate
+      Valider
     </v-btn>
 
     <v-btn
@@ -33,19 +33,14 @@
       class="mr-4"
       @click="reset"
     >
-      Reset Form
-    </v-btn>
-
-    <v-btn
-      color="warning"
-      @click="resetValidation"
-    >
-      Reset Validation
+      Reset
     </v-btn>
   </v-form>
 </template>
 
 <script>
+import PouchDB from 'pouchdb'
+
 export default {
   name: 'FormPrestataire',
   data: () => ({
@@ -69,12 +64,25 @@ export default {
     },
     reset () {
       this.$refs.form.reset()
-    },
-    resetValidation () {
-      this.$refs.form.resetValidation()
     }
   }
 }
+
+var db = new PouchDB('dbname')
+
+db.put({
+  _id: 'daniel@gmail.com',
+  name: 'Daniel',
+  age: 19,
+  _rev: '1-989b8ec340554497de5326f1bc5b3826'
+})
+db.get('daniel@gmail.com').then(function (doc) {
+  console.log(doc)
+}).catch(function (err) {
+  console.log(err)
+})
+
+db.replicate.to('http://127.0.0.1:5984/questionnaire')
 
 </script>
 
