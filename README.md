@@ -4,5 +4,10 @@
 - `Formulaire créer sans ajout dans la bdd `
 
 # 28/10/2019
-- `ajout dans la bdd`
+##Objectif
+- `finir la gestion des questions`
+- `gestion de l'utilisateur `
+
+## Fait 
+- `ajout de l'utilisateur dans la bdd`
 - `recuperation de l'id utilisateur dans la page questionnaire`
