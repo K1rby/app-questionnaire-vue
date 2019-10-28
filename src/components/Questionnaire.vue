@@ -3,13 +3,19 @@
   <v-hover>
     <template v-slot="{ hover }">
       <div :class="`elevation-${hover ? 24 : 6}`" class="mx-auto pa-6 transition-swing">
+        <div v-if="i < 4">
         <h2>{{titre[i]}}</h2>
-        <h2>{{fini}}</h2>
-        <v-checkbox v-model="disabled" class="mx-2" label="Oui"></v-checkbox>
-        <v-checkbox v-model="readonly" class="mx-2" label="Non"></v-checkbox>
-        <v-checkbox v-model="error" class="mx-2" label="Je ne sais pas"></v-checkbox>
-        <v-checkbox v-model="success" class="mx-2" label="Peut-être"></v-checkbox>
-        <v-btn color="error" class="mr-4" @click="validateQuestion">Question suivante</v-btn>
+          <v-checkbox v-model="selected" class="mx-2" label="Oui" value="oui"></v-checkbox>
+          <v-checkbox v-model="selected" class="mx-2" label="Non" value="non"></v-checkbox>
+          <v-checkbox v-model="selected" class="mx-2" label="Je ne sais pas" value="jsp"></v-checkbox>
+          <v-checkbox v-model="selected" class="mx-2" label="Peut-être" value="peutetre"></v-checkbox>
+          <v-btn color="error" class="mr-4" @click="validateQuestion">Question suivante</v-btn>
+        </div>
+        <div v-else-if="i == 4">
+          <h2>Questionnaire fini</h2>
+          <v-btn color="success" class="mr-4">Valider</v-btn>
+          <p>{{score}}</p>
+        </div>
       </div>
     </template>
   </v-hover>
@@ -28,8 +34,9 @@ export default {
       nom: '',
       prenom: '',
       societe: '',
-      i: 1,
-      fini: ''
+      i: 0,
+      selected: [],
+      score: 1
     }
   },
   created: function () {
@@ -47,10 +54,15 @@ export default {
       })
     },
     validateQuestion () {
-      if (this.i <= 10) {
+      if (this.i <= 4) {
         this.i = this.i + 1
+        if (this.selected[0] === this.reponse[this.i]) {
+          this.score = this.score + 10
+          console.log(this.score)
+        }
+        this.selected = []
       } else {
-        this.fini = 'Questionnaire fini'
+        console.log(this.score)
       }
     }
   },
