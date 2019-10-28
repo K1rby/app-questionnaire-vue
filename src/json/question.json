@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "title": "As-tu déjà volé dans la caisse de ton travail ?",
+      "reponse": "non"
+    },
+    {
+      "title": "As-tu déjà été saoule au travail ?",
+      "reponse": "non"
+    },
+    {
+      "title": "Es-tu heureux au travail ?",
+      "reponse": "oui"
+    },
+    {
+      "title": "As-tu déjà dormi au bureau ?",
+      "reponse": "non"
+    },
+    {
+      "title": "Est-ce que certains de tes collègues sont jaloux de toi ?",
+      "reponse": "peut-être"
+    },
+    {
+      "title": "Apprécies-tu ton patron ?",
+      "reponse": "oui"
+    },
+    {
+      "title": "As-tu des amis au travail ?",
+      "reponse": "oui"
+    }
+  ]
+}
