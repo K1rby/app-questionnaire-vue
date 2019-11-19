@@ -3,18 +3,16 @@
   <v-hover>
     <template v-slot="{ hover }">
       <div :class="`elevation-${hover ? 24 : 6}`" class="mx-auto pa-6 transition-swing">
-        <div v-if="i < 4">
-        <h2>{{titre[i]}}</h2>
-          <v-checkbox v-model="selected" class="mx-2" label="Oui" value="oui"></v-checkbox>
-          <v-checkbox v-model="selected" class="mx-2" label="Non" value="non"></v-checkbox>
-          <v-checkbox v-model="selected" class="mx-2" label="Je ne sais pas" value="jsp"></v-checkbox>
-          <v-checkbox v-model="selected" class="mx-2" label="Peut-être" value="peutetre"></v-checkbox>
-          <v-btn color="error" class="mr-4" @click="validateQuestion">Question suivante</v-btn>
+        <div v-if="i < 10">
+        <h2>{{qfTitre[i]}}</h2>
+          <div v-bind:key="displayReponse" v-for="displayReponse in qfReponse[i]">
+            <v-checkbox v-model="qfSelected" class="mx-2" v-bind:label="displayReponse" v-bind:value="displayReponse"></v-checkbox>
+          </div>
+          <v-btn color="error" class="mr-4" @click="qfValidateQuestion">Question suivante</v-btn>
         </div>
-        <div v-else-if="i == 4">
+        <div v-else-if="i == 10">
           <h2>Questionnaire fini</h2>
-          <v-btn color="success" class="mr-4" @click="resultat">Valider</v-btn>
-          <p>{{score}}</p>
+          <v-btn color="success" class="mr-4" @click="qfResultat">Valider</v-btn>
         </div>
       </div>
     </template>
@@ -32,60 +30,64 @@ export default {
   props: ['id'],
   data: function () {
     return {
-      nom: '',
-      prenom: '',
-      societe: '',
+      qfNom: '',
+      qfPrenom: '',
+      qfSociete: '',
       i: 0,
-      selected: [],
-      score: 1
+      qfSelected: [],
+      qfScore: 0
     }
   },
   created: function () {
-    this.recupUser()
+    this.qfRecupUser()
   },
   methods: {
-    recupUser () {
+    qfRecupUser () {
       db.get(this.$route.params.id).then((doc) => {
         console.log(doc)
-        this.nom = doc.nom
-        this.prenom = doc.prenom
-        this.societe = doc.societe
+        this.qfNom = doc.nom
+        this.qfPrenom = doc.prenom
+        this.qfSociete = doc.societe
       }).catch((err) => {
         console.log(err)
       })
     },
-    validateQuestion () {
+    qfValidateQuestion () {
       // ce compteur permet d'incrémenter le tableau des questions et des réponses pour l'affichage et la vérif des réponses
-      if (this.i <= 4) {
+      if (this.i <= 10) {
         // comparaison de la réponse a la question avec la réponse de l'utilisateur
-        if (this.selected[0] === this.reponse[this.i]) {
+        if (this.qfSelected[0] === this.qfReponseQuestion[this.i][0]) {
           // ajout de 10 point pour chaque bonne réponse
-          this.score = this.score + 10
-          console.log(this.score)
+          this.qfScore = this.qfScore + 1
+          console.log(this.qfScore)
         }
         // réinitialisation de la sélection du user avant la prochaine question
-        this.selected = []
-      } else {
-        console.log(this.score)
+        this.qfSelected = []
+        this.i = this.i + 1
       }
-      this.i = this.i + 1
     },
-    resultat () {
+    qfResultat () {
       // envoie du score a la page des Résultat pour l'affichage
-      this.$router.push({ name: 'DisplayResult', params: { score: this.score } })
+      this.$router.push({ name: 'DisplayResult', params: { score: this.qfScore } })
     }
   },
   computed: {
-    titre () {
+    qfTitre () {
       // Récupération des questions depuis le fichier JSON
       return json.questions.map((item) => {
         return item.title
       })
     },
-    reponse () {
+    qfReponse () {
       // Récupération des réponses depuis le fichier JSON
       return json.questions.map((item) => {
         return item.reponse
+      })
+    },
+    qfReponseQuestion () {
+      // Récupération des réponses depuis le fichier JSON
+      return json.questions.map((item) => {
+        return item.reponseQuestion
       })
     }
   }

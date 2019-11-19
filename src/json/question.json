@@ -1,32 +1,54 @@
 {
   "questions": [
     {
-      "title": "As-tu déjà volé dans la caisse de ton travail ?",
-      "reponse": "non"
+      "title": "Quel équipement ne me permet pas de me protéger efficacement de risques présents sur un chantier ?",
+      "reponse": ["Des lunettes de vue", "Un casque", "Des chaussures de sécurité"],
+      "reponseQuestion": ["Des lunettes de vue"]
     },
     {
-      "title": "As-tu déjà été saoule au travail ?",
-      "reponse": "non"
+      "title": "Dans le dépôt de l’entreprise, je trouve un bidon sans étiquette rempli d’un liquide :",
+      "reponse": ["Je peux identifier le liquide en le respirant", "J’en parle immédiatement au chef", "J’identifie moi-même le liquide"],
+      "reponseQuestion": ["J’en parle immédiatement au chef"]
     },
     {
-      "title": "Es-tu heureux au travail ?",
-      "reponse": "oui"
+      "title": "Je suis en train de travailler à proximité de mon collègue qui utilise un perforateur :",
+      "reponse": ["Je dois porter une protection auditive", "Je peux rester à proximité s’il ne l’utilise pas longtemps", "Je ne risque rien "],
+      "reponseQuestion": ["Je dois porter une protection auditive"]
     },
     {
-      "title": "As-tu déjà dormi au bureau ?",
-      "reponse": "non"
+      "title": "Si je travaille à côté d’un engin en mouvement :",
+      "reponse": ["J’avertis le conducteur de ma présence", "Je me tiens toujours à 2 mètres de l’engin", "Le chauffeur me verra et fera attention"],
+      "reponseQuestion": ["J’avertis le conducteur de ma présence"]
     },
     {
-      "title": "Est-ce que certains de tes collègues sont jaloux de toi ?",
-      "reponse": "peut-être"
+      "title": "J’ai été amené à boire de l’alcool :",
+      "reponse": ["Une bière, un verre de vin et un verre de pastis contiennent tous la même quantité d’alcool", "En buvant 3 verres de vin, je peux reprendre le volant", "Un seul verre ne diminue pas la vigilance et les réflexes"],
+      "reponseQuestion": ["Une bière, un verre de vin et un verre de pastis contiennent tous la même quantité d’alcool"]
     },
     {
-      "title": "Apprécies-tu ton patron ?",
-      "reponse": "oui"
+      "title": "Un conducteur descend de la cabine de son camion :",
+      "reponse": ["Ce geste ne présente aucun risque", "Il doit veiller à avoir 3 points d’appui", "Pour décharger le camion, il peut, sans risque, monter dans la benne"],
+      "reponseQuestion": ["Il doit veiller à avoir 3 points d’appui"]
     },
     {
-      "title": "As-tu des amis au travail ?",
-      "reponse": "oui"
+      "title": " Un collègue me dit qu’il va peut-être devoir intervenir sur des matériaux contenant de l’amiante.",
+      "reponse": ["Je lui prête mon masque et mes gants", "Je lui demande s’il a été formé", "Je ne lui demande pas, c’est lui que ça regarde"],
+      "reponseQuestion": ["Je lui demande s’il a été formé"]
+    },
+    {
+      "title": "Cochez l’affirmation exacte",
+      "reponse": ["Un bon chargement occupe le volume disponible et évite des allers retours inutiles", "À l’intérieur d’un véhicule, il est nécessaire de fixer toutes les charges", "Un véhicule utilitaire se conduit de la même façon, chargé ou à vide"],
+      "reponseQuestion": ["Un bon chargement occupe le volume disponible et évite des allers retours inutiles"]
+    },
+    {
+      "title": "Quelle est la conduite à tenir en cas d’accident ?",
+      "reponse": ["Protéger, alerter, secourir", "Alerter, protéger, secourir", "Secourir, protéger, alerter"],
+      "reponseQuestion": ["Protéger, alerter, secourir"]
+    },
+    {
+      "title": "Cochez l’affirmation exacte",
+      "reponse": ["Le salarié doit entretenir le véhicule de l’entreprise", "Le chef d’entreprise ne peut demander son permis à un salarié qu’à l’embauche", "Le chef d’entreprise doit s’assurer que les véhicules de l’entreprise sont révisés régulièrement"],
+      "reponseQuestion": ["Le chef d’entreprise doit s’assurer que les véhicules de l’entreprise sont révisés régulièrement"]
     }
   ]
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>Ce questionnaire est terminer</h1>
-    <h2>Bravo, vous avez réaliser un score de {{scores}}</h2>
+    <h2>Bravo, vous avez réaliser un score de {{qfScores}} / 10</h2>
   </div>
 </template>
 
@@ -11,12 +11,12 @@ export default {
   props: ['score'],
   data: function () {
     return {
-      scores: ''
+      qfScores: ''
     }
   },
   created () {
     // récupération du score passer en GET
-    this.scores = this.$route.params.score
+    this.qfScores = this.$route.params.score
   }
 }
 </script>
