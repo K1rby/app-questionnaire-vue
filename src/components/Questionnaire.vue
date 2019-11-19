@@ -10,7 +10,7 @@
           </div>
           <v-btn color="error" class="mr-4" @click="qfValidateQuestion">Question suivante</v-btn>
         </div>
-        <div v-else-if="qfNbrQuestion == 10">
+        <div v-else-if="qfNbrQuestion === 10">
           <h2>Questionnaire fini</h2>
           <v-btn color="success" class="mr-4" @click="qfResultat">Valider</v-btn>
         </div>
