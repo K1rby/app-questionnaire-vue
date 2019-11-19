@@ -4,7 +4,7 @@
 - `Formulaire créer sans ajout dans la bdd `
 
 # 28/10/2019
-##Objectif
+## Objectif
 - `finir la gestion des questions`
 - `gestion de l'utilisateur `
 
@@ -14,12 +14,12 @@
 - `fonctionnement du résultat`
 
 # 19/11/2019
-##Objectif
+## Objectif
 - `ajout des commentaires`
 - `changement nom variable`
 - `question aléatoire`
 
-##Fait
+## Fait
 
 - `mise en place des commentaires sur le code`
 - `nommage des variables de type "qfNomVariable"`
