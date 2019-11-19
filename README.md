@@ -18,3 +18,9 @@
 - `ajout des commentaires`
 - `changement nom variable`
 - `question aléatoire`
+
+##Fait
+
+- `mise en place des commentaires sur le code`
+- `nommage des variables de type "qfNomVariable"`
+- `ajout des réponses au questions dans le json pour plus de flexibilité`

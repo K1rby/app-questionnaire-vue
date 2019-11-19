@@ -39,6 +39,7 @@ export default {
     }
   },
   created: function () {
+    // récupere l'utilisateur au lancement de cette vue
     this.qfRecupUser()
   },
   methods: {
@@ -58,7 +59,6 @@ export default {
         if (this.qfSelected[0] === this.qfReponseQuestion[this.qfNbrQuestion][0]) {
           // ajout de 10 point pour chaque bonne réponse
           this.qfScore = this.qfScore + 1
-          console.log(this.qfScore)
         }
         // réinitialisation de la sélection du user avant la prochaine question
         this.qfSelected = []

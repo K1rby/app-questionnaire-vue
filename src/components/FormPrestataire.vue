@@ -6,14 +6,12 @@
   >
     <v-text-field
       v-model="qfNom"
-      :counter="10"
       :rules="qfNomRules"
       label="Nom"
       required
     ></v-text-field>
     <v-text-field
       v-model="qfPrenom"
-      :counter="10"
       :rules="qfPrenomRules"
       label="Prenom"
       required
@@ -78,6 +76,7 @@ export default {
       }
     },
     qfReset () {
+      // reset tout les champs du formulaire
       this.$refs.form.reset()
     }
   }
