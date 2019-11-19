@@ -3,14 +3,14 @@
   <v-hover>
     <template v-slot="{ hover }">
       <div :class="`elevation-${hover ? 24 : 6}`" class="mx-auto pa-6 transition-swing">
-        <div v-if="i < 10">
-        <h2>{{qfTitre[i]}}</h2>
-          <div v-bind:key="displayReponse" v-for="displayReponse in qfReponse[i]">
+        <div v-if="qfNbrQuestion < 10">
+        <h2>{{qfTitre[qfNbrQuestion]}}</h2>
+          <div v-bind:key="displayReponse" v-for="displayReponse in qfReponse[qfNbrQuestion]">
             <v-checkbox v-model="qfSelected" class="mx-2" v-bind:label="displayReponse" v-bind:value="displayReponse"></v-checkbox>
           </div>
           <v-btn color="error" class="mr-4" @click="qfValidateQuestion">Question suivante</v-btn>
         </div>
-        <div v-else-if="i == 10">
+        <div v-else-if="qfNbrQuestion == 10">
           <h2>Questionnaire fini</h2>
           <v-btn color="success" class="mr-4" @click="qfResultat">Valider</v-btn>
         </div>
@@ -33,7 +33,7 @@ export default {
       qfNom: '',
       qfPrenom: '',
       qfSociete: '',
-      i: 0,
+      qfNbrQuestion: 0,
       qfSelected: [],
       qfScore: 0
     }
@@ -44,7 +44,6 @@ export default {
   methods: {
     qfRecupUser () {
       db.get(this.$route.params.id).then((doc) => {
-        console.log(doc)
         this.qfNom = doc.nom
         this.qfPrenom = doc.prenom
         this.qfSociete = doc.societe
@@ -54,16 +53,16 @@ export default {
     },
     qfValidateQuestion () {
       // ce compteur permet d'incrémenter le tableau des questions et des réponses pour l'affichage et la vérif des réponses
-      if (this.i <= 10) {
+      if (this.qfNbrQuestion <= 10) {
         // comparaison de la réponse a la question avec la réponse de l'utilisateur
-        if (this.qfSelected[0] === this.qfReponseQuestion[this.i][0]) {
+        if (this.qfSelected[0] === this.qfReponseQuestion[this.qfNbrQuestion][0]) {
           // ajout de 10 point pour chaque bonne réponse
           this.qfScore = this.qfScore + 1
           console.log(this.qfScore)
         }
         // réinitialisation de la sélection du user avant la prochaine question
         this.qfSelected = []
-        this.i = this.i + 1
+        this.qfNbrQuestion = this.qfNbrQuestion + 1
       }
     },
     qfResultat () {
