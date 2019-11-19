@@ -13,6 +13,7 @@ const routes = [
     component: Home
   },
   {
+    // passage de l'id user dans l'url
     path: '/questionnaire/:id',
     name: 'question',
     props: true,

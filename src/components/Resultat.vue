@@ -15,6 +15,7 @@ export default {
     }
   },
   created () {
+    // récupération du score passer en GET
     this.scores = this.$route.params.score
   }
 }

@@ -28,6 +28,7 @@ import json from '../json/question.json'
 var db = new PouchDB('questionnaire')
 export default {
   name: 'Question',
+  // récuperation de l'id user passer en param de la route
   props: ['id'],
   data: function () {
     return {
@@ -54,11 +55,15 @@ export default {
       })
     },
     validateQuestion () {
+      // ce compteur permet d'incrémenter le tableau des questions et des réponses pour l'affichage et la vérif des réponses
       if (this.i <= 4) {
+        // comparaison de la réponse a la question avec la réponse de l'utilisateur
         if (this.selected[0] === this.reponse[this.i]) {
+          // ajout de 10 point pour chaque bonne réponse
           this.score = this.score + 10
           console.log(this.score)
         }
+        // réinitialisation de la sélection du user avant la prochaine question
         this.selected = []
       } else {
         console.log(this.score)
@@ -66,16 +71,19 @@ export default {
       this.i = this.i + 1
     },
     resultat () {
+      // envoie du score a la page des Résultat pour l'affichage
       this.$router.push({ name: 'DisplayResult', params: { score: this.score } })
     }
   },
   computed: {
     titre () {
+      // Récupération des questions depuis le fichier JSON
       return json.questions.map((item) => {
         return item.title
       })
     },
     reponse () {
+      // Récupération des réponses depuis le fichier JSON
       return json.questions.map((item) => {
         return item.reponse
       })
