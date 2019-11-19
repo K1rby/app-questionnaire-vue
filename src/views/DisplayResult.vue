@@ -1,12 +1,14 @@
 <template>
-<h2>test</h2>
+  <Resultat></Resultat>
 </template>
 
 <script>
 import Resultat from '../components/Resultat'
 export default {
   name: 'DisplayResult',
-  components: Resultat
+  components: {
+    Resultat
+  }
 }
 </script>
 

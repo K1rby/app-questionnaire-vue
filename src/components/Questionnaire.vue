@@ -13,7 +13,7 @@
         </div>
         <div v-else-if="i == 4">
           <h2>Questionnaire fini</h2>
-          <v-btn color="success" class="mr-4">Valider</v-btn>
+          <v-btn color="success" class="mr-4" @click="resultat">Valider</v-btn>
           <p>{{score}}</p>
         </div>
       </div>
@@ -55,7 +55,6 @@ export default {
     },
     validateQuestion () {
       if (this.i <= 4) {
-        this.i = this.i + 1
         if (this.selected[0] === this.reponse[this.i]) {
           this.score = this.score + 10
           console.log(this.score)
@@ -64,6 +63,10 @@ export default {
       } else {
         console.log(this.score)
       }
+      this.i = this.i + 1
+    },
+    resultat () {
+      this.$router.push({ name: 'DisplayResult', params: { score: this.score } })
     }
   },
   computed: {

@@ -11,3 +11,9 @@
 ## Fait 
 - `ajout de l'utilisateur dans la bdd`
 - `recuperation de l'id utilisateur dans la page questionnaire`
+
+#19/11/2019
+##Objectif
+- `ajout des commentaires`
+- `changement nom variable`
+- `question aléatoire`
