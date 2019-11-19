@@ -24,3 +24,7 @@
 - `mise en place des commentaires sur le code`
 - `nommage des variables de type "qfNomVariable"`
 - `ajout des réponses au questions dans le json pour plus de flexibilité`
+- `gestion des réponses multiples`
+
+# URL d'accés au projet
+ Voici le lien d'accés à mon projet : https://k1rby.github.io/#/

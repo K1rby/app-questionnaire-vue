@@ -55,10 +55,19 @@ export default {
     qfValidateQuestion () {
       // ce compteur permet d'incrémenter le tableau des questions et des réponses pour l'affichage et la vérif des réponses
       if (this.qfNbrQuestion <= 10) {
-        // comparaison de la réponse a la question avec la réponse de l'utilisateur
-        if (this.qfSelected[0] === this.qfReponseQuestion[this.qfNbrQuestion][0]) {
-          // ajout de 10 point pour chaque bonne réponse
-          this.qfScore = this.qfScore + 1
+        let testSuccess = false
+        // Permet de tester si l'utilisateur a cocher le nombre suffisant de réponse par rapport au réponse du JSON
+        if (this.qfSelected.length === this.qfReponseQuestion[this.qfNbrQuestion].length) {
+          for (let d = 0; d < this.qfSelected.length; d++) {
+            // Permet de tester si les réponses donner par l'utilisateur sont correct
+            if (this.qfReponseQuestion[this.qfNbrQuestion].includes(this.qfSelected[d])) {
+              testSuccess = true
+            }
+          }
+          if (testSuccess === true) {
+            // ajout +1 au score de l'utilisateur
+            this.qfScore = this.qfScore + 1
+          }
         }
         // réinitialisation de la sélection du user avant la prochaine question
         this.qfSelected = []

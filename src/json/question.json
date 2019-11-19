@@ -33,7 +33,7 @@
     {
       "title": " Un collègue me dit qu’il va peut-être devoir intervenir sur des matériaux contenant de l’amiante.",
       "reponse": ["Je lui prête mon masque et mes gants", "Je lui demande s’il a été formé", "Je ne lui demande pas, c’est lui que ça regarde"],
-      "reponseQuestion": ["Je lui demande s’il a été formé"]
+      "reponseQuestion": ["Je lui prête mon masque et mes gants","Je lui demande s’il a été formé"]
     },
     {
       "title": "Cochez l’affirmation exacte",
